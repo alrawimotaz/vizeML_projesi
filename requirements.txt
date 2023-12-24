@@ -1,8 +1,6 @@
 pandas 
-sklearn.model_selection 
-sklearn.ensemble
-sklearn.preprocessing 
+sklearn
 math
 joblib
 streamlit 
-matplotlib.pyplot 
+matplotlib
