@@ -32,9 +32,9 @@ probabilities = best_model.predict_proba([[selected_team_encoded[0]]])[0]
 
 # Olasılıkları göster
 st.write(f"{selected_team} Takımının Gelecek Maçta Durumu Olasılıkları:")
-st.write(f"Real Madrid Kazanır: {probabilities[1]:.2%}")
-st.write(f"Berabere Kalır: {probabilities[2]:.2%}")
-st.write(f"{selected_team} Kazanır: {probabilities[0]:.2%}")
+st.write(f"Probability of Real Madrid winning: {probabilities[1]:.2%}")
+st.write(f"Draw Probability: {probabilities[2]:.2%}")
+st.write(f"Probability of {selected_team} winning: {probabilities[0]:.2%}")
 
 # Maç istatistikleri
 team_A_wins = len(df[(df['team_B'] == selected_team) & (df['score_A'] > df['score_B'])])
