@@ -19,10 +19,10 @@ df['team_B_encoded'] = label_encoder.fit_transform(df['team_B'])
 best_model = joblib.load('model.pkl')
 
 # Streamlit arayüzü
-st.title("Gelecek Maç Sonucu Tahmin Uygulaması")
+st.title("Real Madrid Win Prediction Model")
 
 # Kullanıcıdan takım seçimini al
-selected_team = st.selectbox("Takım Seç:", df['team_B'].unique())
+selected_team = st.selectbox("Select a team:", df['team_B'].unique())
 
 # Label Encoding uygula
 selected_team_encoded = label_encoder.transform([selected_team])
@@ -31,7 +31,7 @@ selected_team_encoded = label_encoder.transform([selected_team])
 probabilities = best_model.predict_proba([[selected_team_encoded[0]]])[0]
 
 # Olasılıkları göster
-st.write(f"{selected_team} Takımının Gelecek Maçta Durumu Olasılıkları:")
+st.write(f"{selected_team} Team Next Match Probabiliteis:")
 st.write(f"Probability of Real Madrid winning: {probabilities[1]:.2%}")
 st.write(f"Draw Probability: {probabilities[2]:.2%}")
 st.write(f"Probability of {selected_team} winning: {probabilities[0]:.2%}")
